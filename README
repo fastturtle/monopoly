@@ -26,7 +26,8 @@ the player's current position.
 Doubles:
 
 If the player rolls 3 doubles in a roll, they are sent to jail. In order to implement this I have created a counter 
-that is increased every time the player rolls a double and reset each time they do not. If the counter reaches 3, then the player's position is changed to the index corresponding to the Jail location.
+that is increased every time the player rolls a double and reset each time they do not. If the counter reaches 3, 
+then the player's position is changed to the index corresponding to the Jail location.
 
 Go To Jail:
 
