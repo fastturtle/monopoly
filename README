@@ -1,1 +1,36 @@
-Testing
+This is a simple php program that looks to calculate the probability distribution of landing on different properties (by color).
+
+The inspiration for this project comes from http://news.bbc.co.uk/2/hi/science/nature/294260.stm, an article describing how a mathematician calculated this probability distribution. Interestingly enough the article omits any mention of the expected value of each of the property colors.
+
+As anyone who has played monopoly should know, how often you land on a property is only important if you take into consideration how much you'll have to pay!
+
+At the moment php is the language I know best, so I've decided to write this program in that language.
+
+Below I've detailed the core concepts behind this program:
+
+The basic model is that we have one player who moves around and around the board. We count the number of times they land on each space and create a distribution with our results.
+
+-----------------------------------------------------------------------------------------------------------------------
+Moving:
+
+The program rolls 2 six sided dice, adds the number together and moves the piece that number of spaces forwards. We number the spaces 0 through 39 and associate each of these indices to a real Monopoly location. Because there are exactly 40 possible locations and the next location after 39 is 0, we use a modulous of 40 to calculate the player's current position.
+
+Doubles:
+
+If the player rolls 3 doubles in a roll, they are sent to jail. In order to implement this I have created a counter that is increased every time the player rolls a double and reset each time they do not. If the counter reaches 3, then the player's position is changed to the index corresponding to the Jail location.
+
+Go To Jail:
+
+If the player lands on the "Go To Jail" location, their position is automatically changed to that of "Jail". Any Monopoly player knows that you must reside in "Jail" for a certain amount of turns, however we can comfortably skip this caveat without any repercussions.
+
+Chance and Community Chest:
+
+This is probably the most involved piece of the program. If the player lands on the "Chance" or "Community Chest" location they must select a card that contains one of several commands. Because we only care about the player's location (and the amount they must pay for being there) we ignore any card that doesn't change the player's position.
+
+That being said, we assume that the player draws a card at random and that all the cards are uniformly distributed. Upon selecting a card that changes the player's location we move them to the indicated spot and begin rolling from there.
+
+Expected value (in the works):
+
+Once we have calculated the probability distribution of each location, obtaining the expected value of each property is fairly straight forward. This is done by multiplying the probability of landing on that space by the cost of landing on it.
+
+It is interesting to note that the cost of landing on a space is not constant. It is a function of how many houses/hotel the space has. Most likely I will choose to calculate the expected value for several different situations, corresponding to early game, mid game, and late game scenarios. To make things easier I will assume that every property has the same number of houses/hotel.
