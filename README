@@ -3,7 +3,7 @@ This is a simple php program that looks to calculate the probability distributio
 (by color).
 
 The inspiration for this project comes from http://news.bbc.co.uk/2/hi/science/nature/294260.stm, an article 
-describing how a mathematician calculated this probability distribution. Interestingly enough the article omits any 
+describing how a mathematician calculated the probability distribution of monopoly spaces. Interestingly enough the article omits any 
 mention of the expected value of each of the property colors.
 
 As anyone who has played monopoly should know, how often you land on a property is only important if you take into 
