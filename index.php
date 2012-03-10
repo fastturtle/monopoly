@@ -47,8 +47,6 @@ function calculate(){
 			if(in_array($properties[$i], $colors[$j])){
 				$color_total[$j] += $counter[$i];
 				$totalValue[$j] += ($rent[$i] * $counter[$i]);
-				//echo $properties[$i];
-				//echo $properties[$i]. '  ' . $color_total[$j] . '<br>';
 			}
 		}
 	}
@@ -97,7 +95,6 @@ function movePiece(){
 		}
 		
 		$counter[$position]++;
-		//echo ("\n Position: " . $position . "<br>");
 	}
 
 }
@@ -185,30 +182,7 @@ function chance(){
 			}
 	}
 	
-	/*
-	if($chanceSelection === "Utility"){
-		distanceToClosest($position,$utilities);
-	}
 	
-	elseif($chanceSelection === "Railroad"){
-		distanceToClosest($position,$railroads);
-	}
-	
-	elseif($chanceSelection === "BackThree"){
-		backThree($position);
-	}
-	else{
-	
-	}	
-	//If the card changes the player's location
-	if($chanceSelection){
-	    //Change their location
-		$position = array_search($chanceSelection, $properties);
-		return $position;
-	}
-	*/
-}
-
 //Calculate the distance to the closest utility or railroad
 function distanceToClosest($locType){
 	global $properties;
